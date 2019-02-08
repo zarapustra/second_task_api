@@ -4,6 +4,7 @@ class Product::ProductIndexCommand < Rectify::Command
   def initialize(params)
     start_year = params[:start_year]
     end_year = params[:end_year]
+    # two functions in one
     @scope = start_year && end_year ? 'with_range' : 'all'
     device = Device.find_by(os: params[:os], density: params[:density])
 
@@ -17,6 +18,8 @@ class Product::ProductIndexCommand < Rectify::Command
   end
 
   def call
+    # that's a silly mistake i made knowing
+    # that p is a Ruby operator :)
     products.map do |p|
       p ::ProductsSerializer.new(p).send(scope)
     end

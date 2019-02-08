@@ -9,6 +9,7 @@ gem 'puma', '~> 3.11'
 gem 'rectify'
 gem 'rack-cors'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
